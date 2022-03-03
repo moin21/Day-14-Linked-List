@@ -6,9 +6,9 @@ public class Main {
 		 * Calling addFist method to create new nodes and assigning values to it using method param.
 		 */
 		LinkedListService list = new LinkedListService();
-		list.addLast(70);
-		list.addLast(30);
-		list.addLast(56);
+		list.addFirst(70);
+		list.addFirst(56);
+		list.addAtSpecificPosition(30, 2);
 		list.printList();
 	}
 }
