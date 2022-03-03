@@ -57,27 +57,54 @@ public class LinkedListService {
 			head = newNode;
 		} else {
 
-			Node temp = new Node(data);
-			temp = head;
+			Node currentNode = new Node(data);
+			currentNode = head;
 			for (int i = 1; i < position - 1; i++) {
-				if (temp != null) {
-					temp = temp.next;
+				if (currentNode != null) {
+					currentNode = currentNode.next;
 				}
 			}
 
-			if (temp != null) {
-				newNode.next = temp.next;
-				temp.next = newNode;
+			if (currentNode != null) {
+				newNode.next = currentNode.next;
+				currentNode.next = newNode;
 			} else {
 				System.out.print("\nThe previous node is null.");
 			}
 		}
 	}
 
+	/**
+	 * Method: Assigning head.next as head. This disconnects the head form linked
+	 * list
+	 * 
+	 * @return - new head which is next to the previous head
+	 */
 	public Node deleteHeadNode() {
 		System.out.println("Deleted node from start : " + head.data);
 		head = head.next;
 		return head;
+	}
+
+	/**
+	 * Method to delete last node
+	 * It first finds the second last node using while loop.
+	 * Then redirects this currentHead to null
+	 * 
+	 */
+	public void deleteLastNode() {
+
+		if (head == null || head.next == null) {
+			return;
+		}
+
+		Node currentHead = head;
+		while (currentHead.next.next != null) {
+			currentHead = currentHead.next;
+		}
+
+		currentHead.next = null;
+
 	}
 
 	/**
