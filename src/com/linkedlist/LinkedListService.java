@@ -1,7 +1,7 @@
 package com.linkedlist;
 
 public class LinkedListService {
-	Node head;
+	static Node head;
 
 	/**
 	 * Method to addNode at start of LinkedList:
@@ -113,8 +113,10 @@ public class LinkedListService {
 	 * @param key - Value we want to search in nodes
 	 * 
 	 */
-	public void searchList(int key) {
-		int count = 1;
+	public static int count = 1;
+
+	public int searchList(int key) {
+
 		Node currentNode = head;
 		while (currentNode != null) {
 			if (currentNode.data == key)
@@ -122,6 +124,18 @@ public class LinkedListService {
 			currentNode = currentNode.next;
 			count++;
 		}
+		return count;
+	}
+
+	/**
+	 * Method to search a value in linked list and than add a new node to it by
+	 * calling existing method.
+	 * 
+	 * @param key - value that needs to be searched
+	 */
+	public void searchListAndAdd(int key) {
+		int count = searchList(key);
+		addAtSpecificPosition(key, count - 1);
 	}
 
 	/**
