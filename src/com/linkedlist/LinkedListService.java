@@ -87,9 +87,8 @@ public class LinkedListService {
 	}
 
 	/**
-	 * Method to delete last node
-	 * It first finds the second last node using while loop.
-	 * Then redirects this currentHead to null
+	 * Method to delete last node It first finds the second last node using while
+	 * loop. Then redirects this currentHead to null
 	 * 
 	 */
 	public void deleteLastNode() {
@@ -105,6 +104,24 @@ public class LinkedListService {
 
 		currentHead.next = null;
 
+	}
+
+	/**
+	 * Method to match every node existing with key provided and print the position
+	 * if matched.
+	 * 
+	 * @param key - Value we want to search in nodes
+	 * 
+	 */
+	public void searchList(int key) {
+		int count = 1;
+		Node currentNode = head;
+		while (currentNode != null) {
+			if (currentNode.data == key)
+				System.out.println(count);
+			currentNode = currentNode.next;
+			count++;
+		}
 	}
 
 	/**

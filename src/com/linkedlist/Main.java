@@ -9,7 +9,8 @@ public class Main {
 		list.addFirst(70);
 		list.addFirst(30);
 		list.addFirst(56);
-		list.deleteLastNode();
+		list.addFirst(30);
+		list.searchList(30);
 		list.printList();
 	}
 }
