@@ -119,10 +119,17 @@ public class LinkedListService {
 
 		Node currentNode = head;
 		while (currentNode != null) {
-			if (currentNode.data == key)
+			if (currentNode.data == key) {
 				System.out.println(count);
-			currentNode = currentNode.next;
-			count++;
+				currentNode = currentNode.next;
+				count++;
+				return count;
+			}
+
+			else {
+				System.out.println("No result found");
+
+			}
 		}
 		return count;
 	}
@@ -136,6 +143,49 @@ public class LinkedListService {
 	public void searchListAndAdd(int key) {
 		int count = searchList(key);
 		addAtSpecificPosition(key, count - 1);
+	}
+
+	/**
+	 * Method to delete specific node from Linked List Here we take 2 variable
+	 * currNode and prevNode and assign currNode and prevNode to head Then we have
+	 * checked if currNode data is equal to the data given If equal then we are
+	 * assigning the prevNode next to the currNode next we are changing the prevNode
+	 * to currNode and currNode as currNode.next If not found that we are displaying
+	 * the alert
+	 * 
+	 * @param data
+	 */
+	public void deleteNode(int data) {
+		Node currNode = head;
+		Node prevNode = head;
+
+		while (currNode != null) {
+			if (currNode.data == data) {
+				prevNode.next = currNode.next;
+				return;
+			}
+			prevNode = currNode;
+			currNode = currNode.next;
+		}
+		System.out.println(" Unable to find the node for value " + data);
+
+	}
+
+	/**
+	 * Method to display the size of the LinkedList 1. Here we are traversing in
+	 * the LinkedLst with currNode.next and incrementing the counter 2. So the total
+	 * node in the LinkedList will be the total value of counter
+	 */
+	public void size() {
+		Node currNode = head;
+		int count = 0;
+
+		while (currNode != null) {
+			count++;
+			currNode = currNode.next;
+		}
+
+		System.out.println("The size of the LinkedList is : " + count);
 	}
 
 	/**
