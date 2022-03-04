@@ -43,9 +43,10 @@ public class LinkedListService {
 	}
 
 	/**
-	 * Method to add a node at any specific place in linked list
-	 * first we will check if the user input for node position is existing
-	 * Then we will move to that position by moving currentNode, than create new node using currentNode.next
+	 * Method to add a node at any specific place in linked list first we will check
+	 * if the user input for node position is existing Then we will move to that
+	 * position by moving currentNode, than create new node using currentNode.next
+	 * 
 	 * @param data     - value to be added to the node
 	 * @param position - position of node(starting from 1)
 	 */
@@ -190,6 +191,39 @@ public class LinkedListService {
 		}
 
 		System.out.println("The size of the LinkedList is : " + count);
+	}
+
+	/**
+	 * Method to sort Linked list by comparing current node to next node First we
+	 * define current node as head for start and currentNode.next as nextNode now
+	 * compare data of currentNode and nextNode, if currentNode.data > nextNode.data
+	 * we swap them else we move to the next node assigning it as current node
+	 */
+	public void sortList() {
+		Node currentNode = head, nextNode = null;
+		int temp;
+
+		if (head == null) {
+			return;
+		} else {
+			while (currentNode != null) {
+				// Node index will point to node next to current
+				nextNode = currentNode.next;
+
+				while (nextNode != null) {
+					// If current node's data is greater than index's node data, swap the data
+					// between them
+					if (currentNode.data > nextNode.data) {
+						temp = currentNode.data;
+						currentNode.data = nextNode.data;
+						nextNode.data = temp;
+					}
+
+					nextNode = nextNode.next;
+				}
+				currentNode = currentNode.next;
+			}
+		}
 	}
 
 	/**
