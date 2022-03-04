@@ -4,7 +4,8 @@ public class LinkedListService {
 	static Node head;
 
 	/**
-	 * Method to addNode at start of LinkedList:
+	 * Method to addNode at start of LinkedList: First checked if list is empty, if
+	 * empty, new node will be the head. If not new node created will be the head
 	 * 
 	 * @param data - data to be added is used as parameter
 	 * @return - if list is empty it head = newNode and return.
@@ -21,7 +22,9 @@ public class LinkedListService {
 	}
 
 	/**
-	 * Method to addNode at last of the list
+	 * Method to addNode at last of the list First we will check if list is empty,
+	 * if empty, new node will be the head. if not, we will move to last node by
+	 * checking current.next = null, and than currentNode.next will be the new node.
 	 * 
 	 * @param data - data to be added is used as parameter
 	 * @return - if list is empty it head = newNode and return.
@@ -41,7 +44,8 @@ public class LinkedListService {
 
 	/**
 	 * Method to add a node at any specific place in linked list
-	 * 
+	 * first we will check if the user input for node position is existing
+	 * Then we will move to that position by moving currentNode, than create new node using currentNode.next
 	 * @param data     - value to be added to the node
 	 * @param position - position of node(starting from 1)
 	 */
@@ -156,33 +160,33 @@ public class LinkedListService {
 	 * @param data
 	 */
 	public void deleteNode(int data) {
-		Node currNode = head;
-		Node prevNode = head;
+		Node currentNode = head;
+		Node previousNode = head;
 
-		while (currNode != null) {
-			if (currNode.data == data) {
-				prevNode.next = currNode.next;
+		while (currentNode != null) {
+			if (currentNode.data == data) {
+				previousNode.next = currentNode.next;
 				return;
 			}
-			prevNode = currNode;
-			currNode = currNode.next;
+			previousNode = currentNode;
+			currentNode = currentNode.next;
 		}
 		System.out.println(" Unable to find the node for value " + data);
 
 	}
 
 	/**
-	 * Method to display the size of the LinkedList 1. Here we are traversing in
-	 * the LinkedLst with currNode.next and incrementing the counter 2. So the total
+	 * Method to display the size of the LinkedList 1. Here we are traversing in the
+	 * LinkedLst with currNode.next and incrementing the counter 2. So the total
 	 * node in the LinkedList will be the total value of counter
 	 */
 	public void size() {
-		Node currNode = head;
+		Node currentNode = head;
 		int count = 0;
 
-		while (currNode != null) {
+		while (currentNode != null) {
 			count++;
-			currNode = currNode.next;
+			currentNode = currentNode.next;
 		}
 
 		System.out.println("The size of the LinkedList is : " + count);
@@ -204,6 +208,5 @@ public class LinkedListService {
 
 			currNode = currNode.next;
 		}
-		System.out.println("NULL");
 	}
 }
